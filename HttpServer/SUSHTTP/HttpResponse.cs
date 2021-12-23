@@ -9,6 +9,14 @@ namespace SUSHTTP
 {
     public class HttpResponse
     {
+        public HttpResponse(HttpStatusCode statusCode)
+        {
+            HttpStatusCode = statusCode;
+            Headers = new List<Header>();
+            Cookies = new List<Cookie>();
+            Body = new byte[0];
+        }
+
         public HttpResponse(string contentType, byte[] body, HttpStatusCode statusCode = HttpStatusCode.Ok)
         {
             if (body == null)

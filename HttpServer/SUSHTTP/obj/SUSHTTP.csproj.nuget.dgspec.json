@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\SUSHTTP.csproj": {}
+    "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\SUSHTTP.csproj": {}
   },
   "projects": {
-    "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj": {
+    "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj",
+        "projectUniqueName": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj",
         "projectName": "GlobalConstants",
-        "projectPath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj",
+        "projectPath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj",
         "packagesPath": "C:\\Users\\aleiva\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\obj\\",
+        "outputPath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aleiva\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,18 +55,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\SUSHTTP.csproj": {
+    "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\SUSHTTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\SUSHTTP.csproj",
+        "projectUniqueName": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\SUSHTTP.csproj",
         "projectName": "SUSHTTP",
-        "projectPath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\SUSHTTP.csproj",
+        "projectPath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\SUSHTTP.csproj",
         "packagesPath": "C:\\Users\\aleiva\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\obj\\",
+        "outputPath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aleiva\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -84,8 +84,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj": {
-                "projectPath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj"
+              "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj": {
+                "projectPath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj"
               }
             }
           }
@@ -114,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

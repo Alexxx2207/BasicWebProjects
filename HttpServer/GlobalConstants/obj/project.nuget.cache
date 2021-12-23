@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ftkES73BNy8BQQ3C0ug43NUFuTx/Vp3G1WlyESbTpyaQXkB0GqxhSBu+eUHC6IKtGo3qChEpB7TIZoBX/hSM5w==",
+  "dgSpecHash": "zied3/+cGOKkj9yW88ot0qRyurVY71Y9Kt4jOkllV5fWg6tEzm2tgohRdoNI8cVB9UyN6eR2Z2tJvQNZ7Ul8Ow==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\GlobalConstants\\GlobalConstants.csproj",
+  "projectFilePath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\GlobalConstants\\GlobalConstants.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

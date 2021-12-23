@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YpG3mYJpfqw2fcweFsyUITlU7bpN32z1lEeieMadKY5YL7CNrnPeNnf98nh9AnYFZsLWvIyj6XlG58GtFwjwJQ==",
+  "dgSpecHash": "xrPAac72lU+d9FeWLVnrSlqwK2gcxQPCX0hOo1kzYp9CuEv0twBVhdVH9En8P8WjWQrhYIAgNs3Onh5jCzXZZQ==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\ConsoleApp\\ConsoleApp.csproj",
+  "projectFilePath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\ConsoleApp\\ConsoleApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

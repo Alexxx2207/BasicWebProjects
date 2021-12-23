@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SUSHTTP", "SUSHTTP\SUSHTTP.csproj", "{E36CA391-E2B9-497F-9C02-F7EE7F553899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SUSHTTP", "SUSHTTP\SUSHTTP.csproj", "{E36CA391-E2B9-497F-9C02-F7EE7F553899}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{6C23C9D2-4C28-4327-85EB-59FA39B312FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{7B3B50E6-DEA7-40A7-8353-8863BCCB4A65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalConstants", "GlobalConstants\GlobalConstants.csproj", "{BD7C7FDB-BBCC-45D2-99B9-C5F9340C5C7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalConstants", "GlobalConstants\GlobalConstants.csproj", "{BD7C7FDB-BBCC-45D2-99B9-C5F9340C5C7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCFramework", "MVCFramework\MVCFramework.csproj", "{BB74C269-8047-4817-9209-C7C746BFE55E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{BD7C7FDB-BBCC-45D2-99B9-C5F9340C5C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7C7FDB-BBCC-45D2-99B9-C5F9340C5C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD7C7FDB-BBCC-45D2-99B9-C5F9340C5C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB74C269-8047-4817-9209-C7C746BFE55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB74C269-8047-4817-9209-C7C746BFE55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB74C269-8047-4817-9209-C7C746BFE55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB74C269-8047-4817-9209-C7C746BFE55E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

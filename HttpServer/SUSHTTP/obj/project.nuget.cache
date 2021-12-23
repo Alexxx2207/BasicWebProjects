@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SpMJwF25O253LtRyoeCbJuKkoqOCwVUDplqaqnyhmntNAP3AGJ9Yc/9suaBNEaNA8u/nk7D3YNPb76leQkLB4g==",
+  "dgSpecHash": "MkXiRkXeZKYFZJ0dTmjGXF06zi5LRuOXV7jETck9QFkK8AYFL+l1wFB9SZO69vzqCqMmz/aTzB2WBxmd+ZSYiQ==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\SoftUniProjects\\HTTPServer\\SUSHTTP\\SUSHTTP.csproj",
+  "projectFilePath": "C:\\Temp\\SoftUniProjects\\BasicWebProjects\\HttpServer\\SUSHTTP\\SUSHTTP.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

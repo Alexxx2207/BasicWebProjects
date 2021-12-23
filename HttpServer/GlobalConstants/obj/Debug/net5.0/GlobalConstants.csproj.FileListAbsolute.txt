@@ -10,3 +10,15 @@ C:\Temp\SoftUniProjects\HTTPServer\GlobalConstants\obj\Debug\net5.0\GlobalConsta
 C:\Temp\SoftUniProjects\HTTPServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.dll
 C:\Temp\SoftUniProjects\HTTPServer\GlobalConstants\obj\Debug\net5.0\ref\GlobalConstants.dll
 C:\Temp\SoftUniProjects\HTTPServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.pdb
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\bin\Debug\net5.0\GlobalConstants.deps.json
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\bin\Debug\net5.0\GlobalConstants.dll
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\bin\Debug\net5.0\ref\GlobalConstants.dll
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\bin\Debug\net5.0\GlobalConstants.pdb
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.csproj.AssemblyReference.cache
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.GeneratedMSBuildEditorConfig.editorconfig
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.AssemblyInfoInputs.cache
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.AssemblyInfo.cs
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.csproj.CoreCompileInputs.cache
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.dll
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\ref\GlobalConstants.dll
+C:\Temp\SoftUniProjects\BasicWebProjects\HttpServer\GlobalConstants\obj\Debug\net5.0\GlobalConstants.pdb
