@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SUSHTTP.Enums
 {
-    public enum QueryMethod
+    public enum HttpMethod
     {
-        Get = 1,
-        Post = 0,
+        Get = 0,
+        Post = 1,
         Put = 3,
         Delete = 4,
     }

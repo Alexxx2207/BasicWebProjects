@@ -18,7 +18,7 @@ namespace SUSHTTP
 
             var requestLineParts = lines[0].Split(' ', StringSplitOptions.None);
 
-            Method = (QueryMethod)Enum.Parse(typeof(QueryMethod), requestLineParts[0], true);
+            Method = (HttpMethod)Enum.Parse(typeof(HttpMethod), requestLineParts[0], true);
             Path = requestLineParts[1];
 
             bool isHeaderLine = true;
@@ -64,7 +64,7 @@ namespace SUSHTTP
         }
 
         public string Path { get; set; }
-        public QueryMethod Method { get; set; }
+        public HttpMethod Method { get; set; }
         public ICollection<Header> Headers { get; set; }
         public ICollection<Cookie> Cookies { get; set; }
         public string Body { get; set; }

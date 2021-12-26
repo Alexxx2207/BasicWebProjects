@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MVCFramework;
 using SUSHTTP;
+using SUSHTTP.Enums;
 
 namespace ConsoleApp
 {
@@ -15,37 +17,7 @@ namespace ConsoleApp
             Console.Write("Port: ");
             int port = int.Parse(Console.ReadLine());
 
-            var server = new HttpServer();
-
-            server.AddRoute("/", HomePage);
-            server.AddRoute("/about", AboutPage);
-            server.AddRoute("/favicon.ico", Favicon);
-
-            await server.StartAsync(port);
-        }
-
-        private static HttpResponse HomePage(HttpRequest request)
-        {
-            var body = "<h1>Welcome</h1>";
-            var bodyByteArray = Encoding.UTF8.GetBytes(body);
-            var httpResponse = new HttpResponse("text/html", bodyByteArray);
-
-            return httpResponse;
-        }
-        private static HttpResponse AboutPage(HttpRequest request)
-        {
-            var body = "<h1>About...</h1>";
-            var bodyByteArray = Encoding.UTF8.GetBytes(body);
-            var httpResponse = new HttpResponse("text/html", bodyByteArray);
-
-            return httpResponse;
-        }
-       
-        private static HttpResponse Favicon(HttpRequest request)
-        {
-            var fileBytes = File.ReadAllBytes(@"wwwroot/favicon.ico");
-            var response = new HttpResponse("image/vnd.microsoft.icon", fileBytes);
-            return response;
+            await new Host().RunAsync(new StartUp(), port);
         }
     }
 }
