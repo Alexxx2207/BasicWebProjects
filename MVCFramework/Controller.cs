@@ -4,21 +4,38 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using MVCFramework.ViewEngine;
 using SUSHTTP;
 
 namespace MVCFramework
 {
     public class Controller
     {
-        protected HttpResponse View([CallerMemberName] string viewPath = null)
+        private IViewEngine viewEngine;
+        private const string UserIdSessionName = "UserId";
+
+        public Controller()
+        {
+            viewEngine = new SUSViewEngine();
+        }
+
+        protected HttpResponse View(object viewModel = null, [CallerMemberName] string viewPath = null)
         {
             var layout = System.IO.File.ReadAllText("Views/Shared/_Layout.cshtml");
+
+            layout = layout.Replace("@RenderBody()", "__VIEW_CONTENT_HERE__");
+
+
+            layout = viewEngine.GetHtml(layout, viewModel);
 
             var viewContent = System.IO.File.ReadAllText("Views/" +
                 this.GetType().Name.Replace("Controller", string.Empty) + "/" +
                 viewPath + ".cshtml");
 
-            var htmlResponseBody = layout.Replace("@RenderBody()", viewContent);
+            viewContent = viewEngine.GetHtml(viewContent, viewModel);
+
+
+            var htmlResponseBody = layout.Replace("__VIEW_CONTENT_HERE__", viewContent);
 
             var bodyByteArray = Encoding.UTF8.GetBytes(htmlResponseBody);
             var httpResponse = new HttpResponse("text/html", bodyByteArray);

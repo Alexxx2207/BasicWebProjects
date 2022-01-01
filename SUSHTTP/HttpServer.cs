@@ -82,7 +82,7 @@ namespace SUSHTTP
                 {
                     var body = "<h1>Missing Page</h1>";
                     var bodyByteArray = Encoding.UTF8.GetBytes(body);
-                    response = new HttpResponse("text/html", bodyByteArray, SUSHTTP.Enums.HttpStatusCode.NotFound);
+                    response = new HttpResponse("text/html", bodyByteArray, Enums.HttpStatusCode.NotFound);
 
                 }
 

@@ -32,7 +32,7 @@ namespace SUSHTTP
             Cookies = new List<Cookie>();
 
             Headers.Add(new Header("Content-Type", contentType));
-            Headers.Add(new Header("Content-Lenth", body.Length.ToString()));
+            Headers.Add(new Header("Content-Length", body.Length.ToString()));
         }
 
         public override string ToString()
