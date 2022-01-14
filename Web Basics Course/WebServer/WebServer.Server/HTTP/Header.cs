@@ -14,6 +14,7 @@ namespace WebServer.Server.HTTP
         public const string Date = "Date";
         public const string Location = "Location";
         public const string Server = "Server";
+        public const string ContentDisposition = "Content-Disposition";
 
         public Header(string name, string value)
         {
