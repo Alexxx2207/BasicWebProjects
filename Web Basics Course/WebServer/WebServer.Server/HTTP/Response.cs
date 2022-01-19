@@ -16,10 +16,13 @@ namespace WebServer.Server.HTTP
 
         public Action<Request, Response> PreRenderAction { get; protected set; }
 
+        public CookieCollection Cookies { get; set; }
+
         public Response(StatusCode statusCode)
         {
             StatusCode = statusCode;
             Headers = new HeaderCollection();
+            Cookies = new CookieCollection();
 
             Headers.Add(Header.Server, "My Web Server");
             Headers.Add(Header.Date, $"{DateTime.UtcNow:r}");
@@ -34,6 +37,11 @@ namespace WebServer.Server.HTTP
             foreach (var header in Headers)
             {
                 sb.AppendLine(header.ToString());
+            }
+
+            foreach (var cookie in Cookies)
+            {
+                sb.AppendLine($"{Header.SetCookie}: {cookie}");
             }
 
             sb.AppendLine();

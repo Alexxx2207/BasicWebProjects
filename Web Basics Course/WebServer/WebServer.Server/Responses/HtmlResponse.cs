@@ -9,7 +9,8 @@ namespace WebServer.Server.Responses
 {
     public class HtmlResponse : ContentResponse
     {
-        public HtmlResponse(string content) : base(content, ContentType.Html)
+        public HtmlResponse(string content, Action<Request, Response> addCookiesAction = null) 
+            :base(content, ContentType.Html, addCookiesAction)
         {
         }
     }
