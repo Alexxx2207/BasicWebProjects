@@ -11,7 +11,7 @@ namespace WebServer.Server.Routing
 {
     public class RoutingTable : IRoutingTable
     {
-        private readonly Dictionary<Method, Dictionary<string, Response>> routes;
+        private readonly Dictionary<Method, Dictionary<string, Func<Request, Response>>> routes;
         public RoutingTable()
         {
             routes = new()
@@ -23,47 +23,37 @@ namespace WebServer.Server.Routing
             };
         }
 
-        public IRoutingTable Map(string url, Method method, Response response)
-        {
-            return method switch
-            {
-                Method.Get => this.MapGet(url, response),
-                Method.Post => this.MapPost(url, response),
-                _ => throw new InvalidOperationException
-                        ($"Method '{method}' is not implemented.")
-            };
-        }
-
-        public IRoutingTable MapGet(string url, Response response)
+        public IRoutingTable Map(string url, Method method, Func<Request, Response> controller)
         {
             Guard.AgainstNull(url, nameof(url));
-            Guard.AgainstNull(response, nameof(response));
+            Guard.AgainstNull(controller, nameof(controller));
 
-            routes[Method.Get][url] = response;
+            this.routes[method][url] = controller;
 
             return this;
         }
 
-        public IRoutingTable MapPost(string url, Response response)
+        public IRoutingTable MapGet(string url, Func<Request, Response> controller)
         {
-            Guard.AgainstNull(url, nameof(url));
-            Guard.AgainstNull(response, nameof(response));
-
-            routes[Method.Post][url] = response;
-
-            return this;
+            return Map(url, Method.Get, controller);
         }
+
+        public IRoutingTable MapPost(string url, Func<Request, Response> controller)
+        {
+            return Map(url, Method.Post, controller);
+        }
+
         public Response MatchRequest(Request request)
         {
-            var method = request.Method;
-            var url = request.Url;
+            var requestMethod = request.Method;
+            var requestPath = request.Url;
 
-            if (!routes.ContainsKey(method) || !routes[method].ContainsKey(url))
-            {
+            if (!this.routes.ContainsKey(requestMethod) || !this.routes[requestMethod].ContainsKey(requestPath))
+            { 
                 return new NotFoundResponse();
             }
 
-            return routes[method][url];
+            return this.routes[requestMethod][requestPath](request);
         }
     }
 }

@@ -14,8 +14,6 @@ namespace WebServer.Server.HTTP
 
         public string Body { get; set; }
 
-        public Action<Request, Response> PreRenderAction { get; protected set; }
-
         public CookieCollection Cookies { get; set; }
 
         public Response(StatusCode statusCode)

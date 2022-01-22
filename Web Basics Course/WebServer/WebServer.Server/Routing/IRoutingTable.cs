@@ -9,8 +9,8 @@ namespace WebServer.Server.Routing
 {
     public interface IRoutingTable
     {
-        IRoutingTable Map(string url, Method method, Response response);
-        IRoutingTable MapGet(string url, Response response);
-        IRoutingTable MapPost(string url, Response response);
+        IRoutingTable Map(string url, Method method, Func<Request, Response> controller);
+        IRoutingTable MapGet(string url, Func<Request, Response> controller);
+        IRoutingTable MapPost(string url, Func<Request, Response> controller);
     }
 }
