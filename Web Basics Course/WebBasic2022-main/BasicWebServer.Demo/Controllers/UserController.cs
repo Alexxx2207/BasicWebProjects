@@ -1,31 +1,35 @@
-﻿using BasicWebServer.Server.Controllers;
+﻿using BasicWebServer.Demo.Services;
+using BasicWebServer.Server.Attributes;
+using BasicWebServer.Server.Controllers;
 using BasicWebServer.Server.HTTP;
+using System;
 
 namespace BasicWebServer.Demo.Controllers
 {
     public class UserController : Controller
     {
-        private const string Username = "user";
+        private readonly UserService userService;
 
-        private const string Password = "user123";
-
-        public UserController(Request request) 
+        public UserController(Request request, UserService _userService) 
             : base(request)
         {
+            userService = _userService;
         }
 
+        [HttpPost]
         public Response LoginUser()
         {
             Request.Session.Clear();
 
             var bodyText = "";
 
-            var usernameMatches = Request.Form["Username"] == Username;
-            var passwordMatches = Request.Form["Password"] == Password;
+            var username = Request.Form["Username"];
+            var password = Request.Form["Password"];
 
-            if (usernameMatches && passwordMatches)
+            if (userService.IsLoginCorrect(username, password))
             {
-                Request.Session[Session.SessionUserKey] = "MyUserId";
+                SignIn(Guid.NewGuid().ToString());
+
                 CookieCollection cookies = new CookieCollection();
                 cookies.Add(Session.SessionCookieName,
                     Request.Session.Id);
@@ -38,19 +42,15 @@ namespace BasicWebServer.Demo.Controllers
             return Redirect("/Login");
         }
 
-        internal Response GetUserData()
+        [Authorize]
+        public Response GetUserData()
         {
-            if (Request.Session.ContainsKey(Session.SessionUserKey))
-            {
-                return Html($"<h3>Currently logged-in user is with username '{Username}'</h3>");
-            }
-
-            return Redirect("/Login");
+            return Html($"<h3>Currently logged-in user is with id '{User.Id}'</h3>");
         }
 
-        internal Response Logout()
+        public Response Logout()
         {
-            Request.Session.Clear();
+            SignOut();
 
             return Html("<h3>Logged out successfully!</h3>");
         }

@@ -3,6 +3,7 @@ using BasicWebServer.Server.Controllers;
 using BasicWebServer.Server.HTTP;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -54,6 +55,51 @@ namespace BasicWebServer.Server.Routing
                 }
 
                 routingTable.Map(httpMethod, path, responseFunction);
+
+                MapDefaultRoutes(
+                    routingTable,
+                    httpMethod,
+                    controllerName,
+                    actionName,
+                    responseFunction);
+            }
+
+            return routingTable;
+        }
+
+        public static IRoutingTable MapStaticFiles(this IRoutingTable routingTable, string folder = "wwwroot")
+        {
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var staticFilesFolder = Path.Combine(currentDirectory, folder);
+
+            if (!Directory.Exists(staticFilesFolder))
+            {
+                return routingTable;
+            }
+
+            var staticFiles = Directory.GetFiles(
+                staticFilesFolder,
+                "*.*",
+                SearchOption.AllDirectories);
+
+            foreach (var file in staticFiles)
+            {
+                var relativePath = Path.GetRelativePath(staticFilesFolder, file);
+
+                var urlPath = "/" + relativePath.Replace("\\", "/");
+
+                routingTable.Map(Method.Get, urlPath, request =>
+                {
+                    var content = File.ReadAllBytes(file);
+                    var fileExtension = Path.GetExtension(file).Trim('.');
+                    var fileName = Path.GetFileName(file);
+                    var contentType = ContentType.GetByFileExtension(fileExtension);
+
+                    return new Response(StatusCode.OK)
+                    {
+                        FileContent = content
+                    };
+                });
             }
 
             return routingTable;
@@ -63,6 +109,11 @@ namespace BasicWebServer.Server.Routing
         {
             return request =>
             {
+                if (!UserIsAuthorized(controllerAction, request.Session))
+                {
+                    return new Response(StatusCode.Unauthorized);
+                }
+
                 var controllerInstance = CreateController(controllerAction.DeclaringType, request);
                 var parameterValues = GetParameterValues(controllerAction, request);
 
@@ -142,5 +193,50 @@ namespace BasicWebServer.Server.Routing
         private static string GetValue(this Request request, string name)
             => request.Query.GetValueOrDefault(name) ??
             request.Form.GetValueOrDefault(name);
+
+        private static void MapDefaultRoutes(
+            IRoutingTable routingTable,
+            Method httpMethod,
+            string controllerName,
+            string actionName,
+            Func<Request, Response> responseFunction)
+        {
+            const string defaultActionName = "Index";
+            const string defaultControllerName = "Home";
+
+            if (actionName == defaultActionName)
+            {
+                routingTable.Map(httpMethod, $"/{controllerName}", responseFunction);
+
+                if (controllerName == defaultControllerName)
+                {
+                    routingTable.Map(httpMethod, "/", responseFunction);
+                }
+            }
+        }
+
+        private static bool UserIsAuthorized(
+            MethodInfo controllerAction,
+            Session session)
+        {
+            var authorizationRequired = controllerAction
+                .DeclaringType
+                .GetCustomAttribute<AuthorizeAttribute>()
+                ?? controllerAction
+                .GetCustomAttribute<AuthorizeAttribute>();
+
+            if (authorizationRequired != null)
+            {
+                var userIsAuthorized = session.ContainsKey(Session.SessionUserKey)
+                    && session[Session.SessionUserKey] != null;
+
+                if (!userIsAuthorized)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
